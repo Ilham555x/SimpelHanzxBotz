@@ -6,30 +6,29 @@ const bodyParser = require('body-parser');
 const fs = require("fs");
 const app = express();
 const PORT = process.env.PORT || 5000;
-const axios = require("axios")
-const { getBuffer, fetchJson } = require('./function/function.js')  
-const { groq } = require("./function/openai.js")
+const axios = require("axios")  
+const { groq } = require("./openai.js")
 const { stalk } = require("node-tiklydown")
 const { setTimeout: sleep } = require('timers/promises');
 const fetch = require("node-fetch")
-const { BSearch } = require('./function/bstation.js') 
-const { doodS } = require('./function/doodstream.js')
-const { ttSearch } = require('./function/tiktoksearch.js') 
-const { souncloudDl } = require('./function/soundcloud.js') 
-const { lirikLagu } = require('./function/liriklagu.js') 
-const { ephoto } = require('./function/pornhub.js') 
-const { YtMp3, YtMp4, Search } = require('./function/youtube.js') 
+const { BSearch } = require('./bstation.js') 
+const { doodS } = require('./doodstream.js')
+const { ttSearch } = require('./tiktoksearch.js') 
+const { souncloudDl } = require('./soundcloud.js') 
+const { lirikLagu } = require('./liriklagu.js') 
+const { ephoto } = require('./pornhub.js') 
+const { YtMp3, YtMp4, Search } = require('./youtube.js') 
 const scp = require("caliph-api")
-const { pinterest2, pinterest } = require('./function/pinterest.js') 
-const { pindlVideo } = require('./function/pindl.js') 
+const { pinterest2, pinterest } = require('./pinterest.js') 
+const { pindlVideo } = require('./pindl.js') 
 const scp2 = require("imon-videos-downloader")
-const { googleImage } = require('./function/gimage.js') 
-const { githubstalk } = require('./function/githubstalk.js') 
-const { shortUrl, shortUrl2 } = require('./function/tinyurl.js') 
-const { remini } = require('./function/remini.js')
-const { chatbot } = require('./function/gpt.js')
-const { uploaderImg } = require('./function/uploadImage.js');
-const { tiktokdl } = require('./function/tiktok.js') 
+const { googleImage } = require('./gimage.js') 
+const { githubstalk } = require('./githubstalk.js') 
+const { shortUrl, shortUrl2 } = require('./tinyurl.js') 
+const { remini } = require('./remini.js')
+const { chatbot } = require('./gpt.js')
+const { uploaderImg } = require('./uploadImage.js');
+const { tiktokdl } = require('./tiktok.js') 
 const {
   convertCRC16,
   generateTransactionId,
@@ -38,7 +37,7 @@ const {
   generateQRIS,
   createQRIS,
   checkQRISStatus
-} = require('./function/orkut.js') 
+} = require('./orkut.js') 
 
 
 app.enable("trust proxy");
@@ -46,7 +45,6 @@ app.set("json spaces", 2);
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "function")));
 app.use(bodyParser.raw({ limit: '50mb', type: '*/*' }))
 
 
